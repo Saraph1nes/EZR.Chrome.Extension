@@ -56,7 +56,7 @@ var options = {
     rules: [
       {
         // look for .css or .scss files
-        test: /\.(css|scss)$/,
+        test: /\.(css|less)$/,
         // in the `src` directory
         use: [
           {
@@ -66,11 +66,24 @@ var options = {
             loader: 'css-loader',
           },
           {
-            loader: 'sass-loader',
+            loader: 'less-loader', // compiles Less to CSS
             options: {
-              sourceMap: true,
+              lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
+                modifyVars: {
+                  'primary-color': '#baf300',
+                  'link-color': '#ef0c0c',
+                  'border-radius-base': '2px',
+                },
+                javascriptEnabled: true,
+              },
             },
           },
+          // {
+          //   loader: 'sass-loader',
+          //   options: {
+          //     sourceMap: true,
+          //   },
+          // },
         ],
       },
       {
@@ -122,14 +135,14 @@ var options = {
           from: 'src/manifest.json',
           to: path.join(__dirname, 'build'),
           force: true,
-          transform: function (content, path) {
+          transform: function(content, path) {
             // generates the manifest file using the package.json informations
             return Buffer.from(
               JSON.stringify({
                 description: process.env.npm_package_description,
                 version: process.env.npm_package_version,
                 ...JSON.parse(content.toString()),
-              })
+              }),
             );
           },
         },

@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.ezrpro.in/xiayuxuan/ezr-chrome-extension.git"
+    "url": "https://github.com/Saraph1nes/EZR.Chrome.Extension.git"
   },
   "scripts": {
     "build": "node utils/build.js",
@@ -13,6 +13,7 @@
     "prettier": "prettier --write '**/*.{js,jsx,css,html}'"
   },
   "dependencies": {
+    "@craco/craco": "^6.2.0",
     "@hot-loader/react-dom": "^17.0.1",
     "@types/chrome": "0.0.132",
     "@types/react": "^17.0.2",
@@ -44,6 +45,8 @@
     "fs-extra": "^9.1.0",
     "html-loader": "^2.1.0",
     "html-webpack-plugin": "^5.2.0",
+    "less": "^4.1.1",
+    "less-loader": "^10.0.1",
     "node-sass": "^4.14.1",
     "prettier": "^2.2.1",
     "sass-loader": "^11.0.1",
