@@ -1,16 +1,16 @@
 import React from 'react';
+
 import './Newtab.less';
-import { Button, Card } from 'antd';
+import NavBar from './components/navbar';
+import SearchPanel from './components/searchPanel';
+
 
 const Newtab = () => {
   return (
-    <div className="App">
-      <Button type='primary'>搜索</Button>
-      <div className='text'>33232</div>
-      <Card>
-        123123
-      </Card>
-    </div>
+    <React.Fragment>
+      <NavBar />
+      <SearchPanel />
+    </React.Fragment>
   );
 };
 
