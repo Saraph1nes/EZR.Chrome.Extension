@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Saraph1nes/EZR.Chrome.Extension.git"
+    "url": "https://e.coding.net/saraph/ezr.chrome.extension/EZR.Chrome.Extension.git"
   },
   "scripts": {
     "build": "node utils/build.js",
