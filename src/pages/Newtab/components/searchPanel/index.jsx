@@ -23,10 +23,10 @@ const searchSelectorList = [
     src: 'https://assets-img.ezrpro.com/pc/img/others/bing.87fce0cd.png'
   }, {
     value: 'bilibili',
-    src: 'https://assets-img.ezrpro.com/pc/img/others/bing.87fce0cd.png'
+    src: 'https://assets-img.ezrpro.com/pc/img/others/icon_bilibili-square%20(1).png'
   }, {
     value: 'gitee',
-    src: 'https://assets-img.ezrpro.com/pc/img/others/gitee2.png'
+    src: 'https://assets-img.ezrpro.com/pc/img/others/gitee-fill-round.png'
   }
 ];
 
@@ -45,7 +45,7 @@ const SearchPanel = () => {
   const [form] = Form.useForm();
   const [quickNavList, setQuickNavList] = useState([]);
   const [searchInput, setSearchInput] = useState('');
-  const [selectValue, setSelectValue] = useState('google');
+  const [selectValue, setSelectValue] = useState(localStorage.getItem('selectValue') || 'google');
   const [isModalVisible, setModalVisible] = useState(false);
   const [addNew, setAddNew] = useState(false);
   const [canAdd, setCanAdd] = useState(true);
@@ -139,28 +139,28 @@ const SearchPanel = () => {
   const search = () => {
     switch (selectValue) {
       case 'baidu':
-        window.open(`https://www.baidu.com/s?wd=${searchInput}`, '_blank')
-        break
+        window.open(`https://www.baidu.com/s?wd=${searchInput}`, '_blank');
+        break;
       case 'google':
-        window.open(`https://www.google.com/search?q=${searchInput}`, '_blank')
-        break
+        window.open(`https://www.google.com/search?q=${searchInput}`, '_blank');
+        break;
       case 'github':
-        window.open(`https://github.com/search?q=${searchInput}`, '_blank')
-        break
+        window.open(`https://github.com/search?q=${searchInput}`, '_blank');
+        break;
       case 'stackOverflow':
-        window.open(`https://search.gitee.com/?skin=rec&type=repository&q=${searchInput}`, '_blank')
-        break
+        window.open(`https://search.gitee.com/?skin=rec&type=repository&q=${searchInput}`, '_blank');
+        break;
       case 'bing':
-        window.open(`https://cn.bing.com/search?q=${searchInput}`, '_blank')
-        break
+        window.open(`https://cn.bing.com/search?q=${searchInput}`, '_blank');
+        break;
       case 'bilibili':
-        window.open(`https://search.bilibili.com/all?keyword=${searchInput}`, '_blank')
-        break
+        window.open(`https://search.bilibili.com/all?keyword=${searchInput}`, '_blank');
+        break;
       case 'gitee':
-        window.open(`https://search.gitee.com/?skin=rec&type=repository&q=${searchInput}`, '_blank')
-        break
+        window.open(`https://search.gitee.com/?skin=rec&type=repository&q=${searchInput}`, '_blank');
+        break;
     }
-  }
+  };
 
   return (
     <React.Fragment>
@@ -169,11 +169,11 @@ const SearchPanel = () => {
           <div className='searchSelector'>
             <Select
               value={selectValue}
-              onChange={(e)=>{
-                setSelectValue(e)
+              onChange={(e) => {
+                localStorage.setItem('selectValue', e);
+                setSelectValue(e);
               }}
-              defaultValue='google'
-                    style={{ width: '70px', height: '40px' }}>
+              style={{ width: '70px', height: '40px' }}>
               {searchSelectorList.map((v, i) => {
                 return (
                   <Option key={i}
@@ -190,12 +190,12 @@ const SearchPanel = () => {
           <Input id='ezrSearchInput'
                  placeholder='请输入关键字搜索'
                  value={searchInput}
-                 onChange={(e)=>{
-                   setSearchInput(e.target.value)
+                 onChange={(e) => {
+                   setSearchInput(e.target.value);
                  }}
                  onKeyDown={(e) => {
-                   if (e.code === "Enter"){
-                     search()
+                   if (e.code === 'Enter') {
+                     search();
                    }
                  }} />
         </div>
