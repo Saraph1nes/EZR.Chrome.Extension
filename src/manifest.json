@@ -1,7 +1,7 @@
 {
   "version": "0.0.1",
   "manifest_version": 3,
-  "name": "EZR起始页",
+  "name": "EZR",
   "options_page": "options.html",
   "background": {
     "service_worker": "background.bundle.js"

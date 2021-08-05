@@ -16,9 +16,9 @@ const Newtab = () => {
           <MainLeft />
         </div>
         <div className='mainCenter'>
-          4444
+          待开发
         </div>
-        <div className='mainRight'>123123123</div>
+        <div className='mainRight'>待开发</div>
       </div>
     </React.Fragment>
   );

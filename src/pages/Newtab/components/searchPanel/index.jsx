@@ -38,8 +38,8 @@ const searchSelectorList = [
 ];
 
 const defaultQuickNavList = [{
-  title: '知乎',
-  url: 'https://www.zhihu.com'
+  title: 'q1',
+  url: 'https://crm-q1.ezrpro.com/#/crm/Home'
 }, {
   title: 'bilibili',
   url: 'https://www.bilibili.com/'
