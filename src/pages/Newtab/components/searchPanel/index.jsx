@@ -7,24 +7,31 @@ const { Option } = Select;
 
 const searchSelectorList = [
   {
+    id: 0,
     value: 'google',
     src: 'https://assets-img.ezrpro.com/pc/img/others/google.b2aa33a4.png'
   }, {
+    id: 1,
     value: 'baidu',
     src: 'https://assets-img.ezrpro.com/pc/img/others/baidu.10d6d640.png'
   }, {
+    id: 2,
     value: 'github',
     src: 'https://assets-img.ezrpro.com/pc/img/others/github.cef68f2e.png'
   }, {
+    id: 3,
     value: 'stackOverflow',
     src: 'https://assets-img.ezrpro.com/pc/img/others/stack-overflow.86a0756c.png'
   }, {
+    id: 4,
     value: 'bing',
     src: 'https://assets-img.ezrpro.com/pc/img/others/bing.87fce0cd.png'
   }, {
+    id: 5,
     value: 'bilibili',
     src: 'https://assets-img.ezrpro.com/pc/img/others/icon_bilibili-square%20(1).png'
   }, {
+    id: 6,
     value: 'gitee',
     src: 'https://assets-img.ezrpro.com/pc/img/others/gitee-fill-round.png'
   }
@@ -45,7 +52,7 @@ const SearchPanel = () => {
   const [form] = Form.useForm();
   const [quickNavList, setQuickNavList] = useState([]);
   const [searchInput, setSearchInput] = useState('');
-  const [selectValue, setSelectValue] = useState(localStorage.getItem('selectValue') || 'google');
+  const [selectId, setSelectId] = useState(parseInt(localStorage.getItem('selectId')) || 0);
   const [isModalVisible, setModalVisible] = useState(false);
   const [addNew, setAddNew] = useState(false);
   const [canAdd, setCanAdd] = useState(true);
@@ -64,10 +71,8 @@ const SearchPanel = () => {
     // }]))
     let item = localStorage.getItem('quickNavList');
     if (item) {
-      console.log(JSON.parse(item), '有item');
       setQuickNavList(JSON.parse(item));
     } else {
-      console.log(JSON.parse(item), '无item');
       setQuickNavList(defaultQuickNavList);
       localStorage.setItem('quickNavList', JSON.stringify(defaultQuickNavList));
     }
@@ -137,26 +142,26 @@ const SearchPanel = () => {
   };
 
   const search = () => {
-    switch (selectValue) {
-      case 'baidu':
-        window.open(`https://www.baidu.com/s?wd=${searchInput}`, '_blank');
-        break;
-      case 'google':
+    switch (selectId) {
+      case 0:
         window.open(`https://www.google.com/search?q=${searchInput}`, '_blank');
         break;
-      case 'github':
+      case 1:
+        window.open(`https://www.baidu.com/s?wd=${searchInput}`, '_blank');
+        break;
+      case 2:
         window.open(`https://github.com/search?q=${searchInput}`, '_blank');
         break;
-      case 'stackOverflow':
+      case 3:
         window.open(`https://search.gitee.com/?skin=rec&type=repository&q=${searchInput}`, '_blank');
         break;
-      case 'bing':
+      case 4:
         window.open(`https://cn.bing.com/search?q=${searchInput}`, '_blank');
         break;
-      case 'bilibili':
+      case 5:
         window.open(`https://search.bilibili.com/all?keyword=${searchInput}`, '_blank');
         break;
-      case 'gitee':
+      case 6:
         window.open(`https://search.gitee.com/?skin=rec&type=repository&q=${searchInput}`, '_blank');
         break;
     }
@@ -168,17 +173,17 @@ const SearchPanel = () => {
         <div className='searchInput'>
           <div className='searchSelector'>
             <Select
-              value={selectValue}
+              value={selectId}
               onChange={(e) => {
-                localStorage.setItem('selectValue', e);
-                setSelectValue(e);
+                localStorage.setItem('selectId', e);
+                setSelectId(e);
               }}
               style={{ width: '70px', height: '40px' }}>
               {searchSelectorList.map((v, i) => {
                 return (
                   <Option key={i}
                           className='options'
-                          value={v.value}>
+                          value={v.id}>
                     <img style={{ width: '28px', height: '28px' }}
                          src={v.src}
                          className='searchSelectorImg' />
@@ -188,7 +193,7 @@ const SearchPanel = () => {
             </Select>
           </div>
           <Input id='ezrSearchInput'
-                 placeholder='请输入关键字搜索'
+                 placeholder='请输入关键字搜索  |  Tab切换搜索引擎'
                  value={searchInput}
                  onChange={(e) => {
                    setSearchInput(e.target.value);
@@ -196,6 +201,18 @@ const SearchPanel = () => {
                  onKeyDown={(e) => {
                    if (e.code === 'Enter') {
                      search();
+                   }
+                   if (e.code === 'Tab') {
+                     let tempId;
+                     e.preventDefault();
+                     e.stopPropagation();
+                     if (selectId < searchSelectorList.length - 1) {
+                       tempId = selectId + 1;
+                     } else {
+                       tempId = 0;
+                     }
+                     setSelectId(tempId);
+                     localStorage.setItem('selectId', tempId);
                    }
                  }} />
         </div>
