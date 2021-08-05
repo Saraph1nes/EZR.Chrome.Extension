@@ -6,7 +6,7 @@ const Popup = () => {
     <div className="App">
       <header className="App-header">
         <p>
-          可以写，但是没必要~
+          研发ing~有兴趣加入请联系夏宇轩~
         </p>
       </header>
     </div>
