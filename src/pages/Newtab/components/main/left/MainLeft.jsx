@@ -2,7 +2,7 @@ import React from 'react';
 import { List, Select } from 'antd';
 
 import './MainLeft.less';
-import ezrToolsConfList from './ezr-tools-conf.json';
+import ezrToolsConfList from './ezr-tools-conf-front-end.json';
 
 const { Option } = Select;
 

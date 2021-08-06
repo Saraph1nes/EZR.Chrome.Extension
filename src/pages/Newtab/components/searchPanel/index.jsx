@@ -174,6 +174,7 @@ const SearchPanel = () => {
           <div className='searchSelector'>
             <Select
               value={selectId}
+              dropdownMatchSelectWidth={false}
               onChange={(e) => {
                 localStorage.setItem('selectId', e);
                 setSelectId(e);

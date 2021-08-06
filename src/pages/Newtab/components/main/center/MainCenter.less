@@ -1,0 +1,129 @@
+.MainCenter {
+  width: 100%;
+  font-family: PingFang SC, -apple-system, Arial, Microsoft YaHei, Microsoft JhengHei, Helvetica Neue, sans-serif;
+
+  .title {
+    border-bottom: 1px solid #4a4a4a;
+    padding: 5px;
+
+    .sourceSelector {
+      display: inline-block;
+
+      img {
+        margin: 10px;
+      }
+
+      .titleSpan {
+        //color: #8bc34a;
+        user-select: none;
+        display: inline-block;
+      }
+    }
+
+    .ant-select {
+      //float: right;
+      margin-top: 6px;
+    }
+
+    .ant-select-arrow {
+      color: #a9a9a9;
+    }
+  }
+
+  .list {
+    padding: 0 0 72px 8px;
+    height: 80vh;
+    overflow-y: scroll;
+
+    .itemRow {
+      padding: 8px 8px 0 0;
+      transition: background-color 0.3s linear;
+      margin-top: 8px;
+      margin-right: 8px;
+
+      &:hover {
+        background-color: #4a4a4a;
+        transition: background-color 0.1s linear;
+      }
+
+      .item {
+        padding: 8px 12px;
+        background-color: transparent;
+
+        .repoContent {
+          background-color: transparent;
+          overflow: hidden;
+          letter-spacing: .2px;
+
+          .repoHeader {
+            display: flex;
+            margin-bottom: 8px;
+            background-color: transparent;
+
+            .titleText {
+              width: 100%;
+              background-color: transparent;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              word-break: break-word;
+              white-space: nowrap;
+              color: #e3e3e3;
+              font-weight: 600;
+              line-height: 22px;
+
+              &:hover {
+                text-decoration-line: underline;
+              }
+            }
+          }
+
+          .repoMeta {
+            background-color: transparent;
+            color: #7d7d7f;
+            font-size: 13px;
+            line-height: 22px;
+            -webkit-line-clamp: 2;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            word-break: break-word;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+            .articleInfos{
+              background-color: transparent;
+
+              .type:not(:first-child){
+                position: relative;
+                margin-left: 10px;
+
+                &::before{
+                  position: absolute;
+                  left: -7px;
+                  content: '·';
+                }
+              }
+            }
+
+            .interactInfo{
+              background-color: transparent;
+
+              .type:not(:first-child){
+                position: relative;
+                margin-left: 10px;
+
+                &::before{
+                  position: absolute;
+                  left: -7px;
+                  content: '·';
+                }
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+}
