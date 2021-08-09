@@ -22,7 +22,7 @@
   },
   {
     "title": "前端开发管理平台",
-    "img": "https://assets-img.ezrpro.com/pc/img/order/platform.png",
+    "img": "https://assets-img.ezrpro.com/pc/img/others/xiaoxi.png",
     "url": "https://fe-dev.ezrpro.work/dashboard",
     "desc": "即将废弃",
     "remark": "目前仅仅前端同学使用，如无权限，请联系王宇锋"
@@ -71,7 +71,7 @@
   },
   {
     "title": "EZR Design Mobile",
-    "img": "https://assets-img.ezrpro.com/pc/img/order/ezrdmobile.png",
+    "img": "https://assets-img.ezrpro.com/pc/img/others/mobilePhone.png",
     "url": "http://192.168.20.102/ezrdmobile/#/",
     "desc": "前端开发, 全栈开发, IOS开发, Android开发",
     "remark": "A fresh and flat UI-Kit specially for desktop application, made with ♥ by Nerv"
@@ -84,31 +84,31 @@
     "remark": ""
   },
   {
-    "title": "平台管理中心(bandmaster)",
-    "img": "https://assets-img.ezrpro.com/pc/img/order/gl.png",
+    "title": "bandmaster(平台管理中心)",
+    "img": "https://assets-img.ezrpro.com/pc/img/others/chilun.png",
     "url": "http://bandmaster.ezrpro.in/",
     "desc": "常用功能为日常迭代系统",
     "remark": "权限对接人，需要找凌晨开通权限"
   },
   {
-    "title": "CMDB运维管理平台",
-    "img": "https://assets-img.ezrpro.com/pc/img/order/ywgl.png",
+    "title": "CMDB(运维管理平台)",
+    "img": "https://assets-img.ezrpro.com/pc/img/others/yunwei.png",
     "url": "https://cmdb.ezrpro.com/#/dashboard",
     "desc": "运维管理平台",
     "remark": "权限对接人，运维部"
   },
   {
     "title": "运维发布系统",
-    "img": "https://assets-img.ezrpro.com/pc/img/order/fb.png",
+    "img": "https://assets-img.ezrpro.com/pc/img/others/fabu.png",
     "url": "http://192.168.12.240:3001/#/",
     "desc": "用于发布到测试环境、正式环境，全技术部门都在使用",
     "remark": "权限对接人，运维部"
   },
   {
-    "title": "打包工具",
-    "img": "https://assets-img.ezrpro.com/pc/img/order/jenkins.png",
+    "title": "jenkins",
+    "img": "https://assets-img.ezrpro.com/pc/img/others/dabao.png",
     "url": "http://192.168.20.102:8080/",
-    "desc": "jenkins",
+    "desc": "打包工具",
     "remark": ""
   }
 ]

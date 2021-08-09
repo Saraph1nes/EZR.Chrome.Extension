@@ -34,6 +34,10 @@ const searchSelectorList = [
     id: 6,
     value: 'gitee',
     src: 'https://assets-img.ezrpro.com/pc/img/others/gitee-fill-round.png'
+  }, {
+    id: 7,
+    value: 'juejin',
+    src: 'https://assets-img.ezrpro.com/pc/img/others/juejin.svg'
   }
 ];
 
@@ -163,6 +167,9 @@ const SearchPanel = () => {
         break;
       case 6:
         window.open(`https://search.gitee.com/?skin=rec&type=repository&q=${searchInput}`, '_blank');
+        break;
+      case 7:
+        window.open(`https://juejin.cn/search?query=${searchInput}`, '_blank');
         break;
     }
   };
