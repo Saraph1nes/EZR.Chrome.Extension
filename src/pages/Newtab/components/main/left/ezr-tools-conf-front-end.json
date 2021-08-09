@@ -7,6 +7,13 @@
     "remark": "目前仅仅前端同学使用，如无权限，请联系王宇锋"
   },
   {
+    "title": "斑马",
+    "img": "https://assets-img.ezrpro.com/pc/img/others/zebra.png",
+    "url": "https://fe-bm.ezrpro.work/#/mini/wechat",
+    "desc": "一站式二维码平台",
+    "remark": "提供了小程序，企业微信，支付宝小程序等项目的测试，灰度，线上二维码"
+  },
+  {
     "title": "语雀",
     "img": "https://assets-img.ezrpro.com/pc/img/order/yqq.png",
     "url": "https://ezrpro.yuque.com/ezr/newbie",
@@ -26,6 +33,41 @@
     "url": "https://fe-material.ezrpro.work/",
     "desc": "设计规范、ezrd、ezrpc、mobile组件库等",
     "remark": "驿氪前端技术部物料中心"
+  },
+  {
+    "title": "腾讯企业邮箱",
+    "img": "https://assets-img.ezrpro.com/pc/img/others/txMail.png",
+    "url": "https://exmail.qq.com/",
+    "desc": "工作邮箱",
+    "remark": ""
+  },
+  {
+    "title": "ezrd",
+    "img": "https://assets-img.ezrpro.com/pc/img/order/ezrd.png",
+    "url": "https://fe-npm.ezrpro.work/ezrd/zh/guides/install",
+    "desc": "ezr基础组件库",
+    "remark": ""
+  },
+  {
+    "title": "ezrpc",
+    "img": "https://assets-img.ezrpro.com/pc/img/order/ezrpc1.png",
+    "url": "https://fe-npm.ezrpro.work/ezrpc/zh/guides/install",
+    "desc": "业务组件库",
+    "remark": ""
+  },
+  {
+    "title": "tpad",
+    "img": "https://assets-img.ezrpro.com/pc/img/order/tpad.png",
+    "url": "https://www.tapd.cn/company/participant_projects?from=left_tree2",
+    "desc": "项目流程管理平台",
+    "remark": ""
+  },
+  {
+    "title": "gitlab",
+    "img": "https://assets-img.ezrpro.com/pc/img/order/gitlab.png",
+    "url": "https://gitlab.ezrpro.in/",
+    "desc": "前端项目仓库",
+    "remark": ""
   },
   {
     "title": "EZR Design Mobile",
@@ -67,34 +109,6 @@
     "img": "https://assets-img.ezrpro.com/pc/img/order/jenkins.png",
     "url": "http://192.168.20.102:8080/",
     "desc": "jenkins",
-    "remark": ""
-  },
-  {
-    "title": "ezrd",
-    "img": "https://assets-img.ezrpro.com/pc/img/order/ezrd.png",
-    "url": "https://fe-npm.ezrpro.work/ezrd/zh/guides/install",
-    "desc": "ezr基础组件库",
-    "remark": ""
-  },
-  {
-    "title": "ezrpc",
-    "img": "https://assets-img.ezrpro.com/pc/img/order/ezrpc1.png",
-    "url": "https://fe-npm.ezrpro.work/ezrpc/zh/guides/install",
-    "desc": "业务组件库",
-    "remark": ""
-  },
-  {
-    "title": "tpad",
-    "img": "https://assets-img.ezrpro.com/pc/img/order/tpad.png",
-    "url": "https://www.tapd.cn/company/participant_projects?from=left_tree2",
-    "desc": "项目流程管理平台",
-    "remark": ""
-  },
-  {
-    "title": "gitlab",
-    "img": "https://assets-img.ezrpro.com/pc/img/order/gitlab.png",
-    "url": "https://gitlab.ezrpro.in/",
-    "desc": "前端项目仓库",
     "remark": ""
   }
 ]

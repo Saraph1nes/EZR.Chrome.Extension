@@ -17,20 +17,44 @@ const MainCenter = () => {
     order: 'heat'
   });
   const [dataList, setDataList] = useState([]);
+  const [tempOffset, setTempOffset] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    axios.post('https://e.juejin.cn/resources/gold', param).then(res => {
-      console.log(res);
-      setDataList(res.data.data);
-    });
-  }, []);
+    try {
+      setLoading(true);
+      let tempParam = JSON.parse(JSON.stringify(param));
+      tempParam.offset = 0;
+      setParam(tempParam);
+      setTempOffset(0);
+      axios.post('https://e.juejin.cn/resources/gold', param).then(res => {
+        setDataList(res.data.data);
+      });
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setLoading(false);
+    }
+  }, [param.order, param.category]);
 
   useEffect(() => {
-    axios.post('https://e.juejin.cn/resources/gold', param).then(res => {
-      console.log(res);
-      setDataList(res.data.data);
-    });
-  }, [param.order,param.category]);
+    try {
+      setLoading(true);
+      if (tempOffset !== 0) {
+        axios.post('https://e.juejin.cn/resources/gold', param).then(res => {
+          let _tempDataList = JSON.parse(JSON.stringify(dataList));
+          res.data.data.forEach(item => {
+            _tempDataList.push(item);
+          });
+          setDataList(_tempDataList);
+        });
+      }
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setLoading(false);
+    }
+  }, [tempOffset]);
 
   return (
     <div className='MainCenter'>
@@ -55,9 +79,9 @@ const MainCenter = () => {
                 value={param.category}
                 dropdownMatchSelectWidth={false}
                 onChange={(value, option) => {
-                  let tampParam = JSON.parse(JSON.stringify(param));
-                  tampParam.category = value;
-                  setParam(tampParam);
+                  let tempParam = JSON.parse(JSON.stringify(param));
+                  tempParam.category = value;
+                  setParam(tempParam);
                 }}
         >
           <Option value='all'>首页</Option>
@@ -83,10 +107,12 @@ const MainCenter = () => {
           <Option value='time'>最新</Option>
         </Select>
       </div>
-      <div className='list'>
+      <div className='list'
+           ref={(ref) => MainCenter.scrollParentRef = ref}>
         <List
           grid={{ column: 3 }}
           dataSource={dataList}
+          loading={loading}
           loadMore={<div
             style={{
               textAlign: 'center',
@@ -95,16 +121,16 @@ const MainCenter = () => {
               lineHeight: '32px'
             }}
           >
-            <Button onClick={() => {
-              console.log(param.offset);
+            {tempOffset > 175 ? <span style={{ color: '#a9a9a9',userSelect:'none' }}>———— 没有更多啦 ————</span> : <Button onClick={() => {
               let tempParam = JSON.parse(JSON.stringify(param));
-              tempParam.offset = dataList.length;
+              tempParam.offset = tempOffset + param.limit;
+              setTempOffset(tempParam.offset);
               setParam(tempParam);
-            }}>加载更多</Button>
+            }}>加载更多</Button>}
           </div>}
           renderItem={(item, index) => {
-            return <List.Item key={index}
-                              className='itemRow'>
+            return <div key={index}
+                        className='itemRow'>
               <a href={item.url}
                  target='_blank'
                  rel='noreferrer'>
@@ -132,13 +158,9 @@ const MainCenter = () => {
                   </div>
                 </div>
               </a>
-            </List.Item>;
+            </div>;
           }}
-        >
-          {/*<div style={{ height: '200px', textAlign: 'center', color: '#a9a9a9', userSelect: 'none' }}>————*/}
-          {/*  没有下文啦 ————*/}
-          {/*</div>*/}
-        </List>
+        />
       </div>
     </div>
   );

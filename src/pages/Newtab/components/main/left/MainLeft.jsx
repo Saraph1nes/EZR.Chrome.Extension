@@ -38,7 +38,7 @@ const MainLeft = () => {
                 </a>
               </li>;
             }}
-            footer={<div style={{height:'200px',textAlign:'center',color:'#a9a9a9',userSelect:"none"}}>———— 没有下文啦 ————</div>}
+            footer={<div style={{height:'200px',textAlign:'center',color:'#a9a9a9',userSelect:"none"}}>———— 没有更多啦 ————</div>}
       />
     </div>
   );
