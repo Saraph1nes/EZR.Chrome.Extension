@@ -5,6 +5,7 @@ import NavBar from './components/navbar';
 import SearchPanel from './components/searchPanel';
 import MainLeft from './components/main/left/MainLeft';
 import MainCenter from './components/main/center/MainCenter';
+import MainRight from './components/main/right/MainRight';
 
 const Newtab = () => {
   return (
@@ -18,7 +19,9 @@ const Newtab = () => {
         <div className='mainCenter'>
           <MainCenter />
         </div>
-        {/*<div className='mainRight'>待开发</div>*/}
+        <div className='mainRight'>
+          <MainRight />
+        </div>
       </div>
     </React.Fragment>
   );

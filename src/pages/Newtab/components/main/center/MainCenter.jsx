@@ -110,7 +110,15 @@ const MainCenter = () => {
       <div className='list'
            ref={(ref) => MainCenter.scrollParentRef = ref}>
         <List
-          grid={{ column: 3 }}
+          grid={{
+            gutter: 16,
+            xs: 1,
+            sm: 1,
+            md: 1,
+            lg: 1,
+            xl: 2,
+            xxl: 3
+          }}
           dataSource={dataList}
           loading={loading}
           loadMore={<div
@@ -121,12 +129,13 @@ const MainCenter = () => {
               lineHeight: '32px'
             }}
           >
-            {tempOffset > 175 ? <span style={{ color: '#a9a9a9',userSelect:'none' }}>———— 没有更多啦 ————</span> : <Button onClick={() => {
-              let tempParam = JSON.parse(JSON.stringify(param));
-              tempParam.offset = tempOffset + param.limit;
-              setTempOffset(tempParam.offset);
-              setParam(tempParam);
-            }}>加载更多</Button>}
+            {tempOffset > 175 ? <span style={{ color: '#a9a9a9', userSelect: 'none' }}>———— 没有更多啦 ————</span> :
+              <Button onClick={() => {
+                let tempParam = JSON.parse(JSON.stringify(param));
+                tempParam.offset = tempOffset + param.limit;
+                setTempOffset(tempParam.offset);
+                setParam(tempParam);
+              }}>加载更多</Button>}
           </div>}
           renderItem={(item, index) => {
             return <div key={index}

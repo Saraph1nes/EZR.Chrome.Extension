@@ -12,7 +12,8 @@ let webpack = require('webpack'),
 const ASSET_PATH = process.env.ASSET_PATH || '/';
 
 let alias = {
-  'react-dom': '@hot-loader/react-dom'
+  'react-dom': '@hot-loader/react-dom',
+  '@': path.resolve('src')
 };
 
 // load the secrets
