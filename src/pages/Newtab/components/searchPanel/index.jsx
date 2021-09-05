@@ -3,6 +3,8 @@ import { Button, Divider, Form, Input, message, Modal, Select } from 'antd';
 
 import './index.less';
 
+import {setLocalStorageItem,getLocalStorageItem} from '@/common/utils/handleLocalStorage'
+
 const { Option } = Select;
 
 const searchSelectorList = [
@@ -56,7 +58,7 @@ const SearchPanel = () => {
   const [form] = Form.useForm();
   const [quickNavList, setQuickNavList] = useState([]);
   const [searchInput, setSearchInput] = useState('');
-  const [selectId, setSelectId] = useState(parseInt(localStorage.getItem('selectId')) || 0);
+  const [selectId, setSelectId] = useState(parseInt(getLocalStorageItem('selectId')) || 0);
   const [isModalVisible, setModalVisible] = useState(false);
   const [addNew, setAddNew] = useState(false);
   const [canAdd, setCanAdd] = useState(true);
@@ -73,12 +75,12 @@ const SearchPanel = () => {
     //   title: 'github',
     //   url: 'https://www.github.com',
     // }]))
-    let item = localStorage.getItem('quickNavList');
+    let item = getLocalStorageItem('quickNavList');
     if (item) {
       setQuickNavList(JSON.parse(item));
     } else {
       setQuickNavList(defaultQuickNavList);
-      localStorage.setItem('quickNavList', JSON.stringify(defaultQuickNavList));
+      setLocalStorageItem('quickNavList', JSON.stringify(defaultQuickNavList));
     }
   }, []);
 
@@ -91,7 +93,7 @@ const SearchPanel = () => {
   }, [quickNavList]);
 
   const submit = (e) => {
-    let res = JSON.parse(localStorage.getItem('quickNavList'));
+    let res = JSON.parse(getLocalStorageItem('quickNavList'));
     try {
       if (editItem) {
         // let findItem = res.filter(v=>{
@@ -105,12 +107,12 @@ const SearchPanel = () => {
             res.splice(i, 1, e);
           }
         });
-        localStorage.setItem('quickNavList', JSON.stringify(res));
+        setLocalStorageItem('quickNavList', JSON.stringify(res));
         setQuickNavList(res);
         message.success('修改成功');
       } else {
         res.push(e);
-        localStorage.setItem('quickNavList', JSON.stringify(res));
+        setLocalStorageItem('quickNavList', JSON.stringify(res));
         setQuickNavList(res);
         message.success('增加成功');
       }
@@ -135,9 +137,9 @@ const SearchPanel = () => {
 
   const linkItemAdd = (item, index) => {
     try {
-      let res = JSON.parse(localStorage.getItem('quickNavList'));
+      let res = JSON.parse(getLocalStorageItem('quickNavList'));
       res.splice(index, 1);
-      localStorage.setItem('quickNavList', JSON.stringify(res));
+      setLocalStorageItem('quickNavList', JSON.stringify(res));
       setQuickNavList(res);
       message.success('删除成功');
     } catch (e) {
@@ -183,7 +185,7 @@ const SearchPanel = () => {
               value={selectId}
               dropdownMatchSelectWidth={false}
               onChange={(e) => {
-                localStorage.setItem('selectId', e);
+                setLocalStorageItem('selectId', e);
                 setSelectId(e);
               }}
               style={{ width: '70px', height: '40px' }}>
@@ -220,7 +222,7 @@ const SearchPanel = () => {
                        tempId = 0;
                      }
                      setSelectId(tempId);
-                     localStorage.setItem('selectId', tempId);
+                     setLocalStorageItem('selectId', tempId);
                    }
                  }} />
         </div>

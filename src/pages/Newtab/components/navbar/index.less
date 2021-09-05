@@ -1,6 +1,5 @@
-.navbar{
-  display: flex;
-  height:55px;
+.navbar {
+  height: 55px;
   padding: 0 10px 0 10px;
   flex-direction: row;
   align-items: center;
@@ -8,18 +7,30 @@
   user-select: none;
   background: #272727;
 
-  .backgroundBanner{
-    width: 70px;
-    text-align: center;
+  .logoArea {
+    float: left;
+    display: flex;
+    height: 55px;
+    line-height: 55px;
 
-    .title{
-      white-space: nowrap;
-      transition: all .15s linear;
-      color: #e3e3e3;
+    .backgroundBanner {
+      width: 70px;
+      text-align: center;
 
-      &:hover{
-        color: #8bc34a;
+      .title {
+        white-space: nowrap;
+        transition: all .15s linear;
+        color: #e3e3e3;
+
+        &:hover {
+          color: #8bc34a;
+        }
       }
     }
+  }
+
+  .showGameBtn {
+    float: right;
+    line-height: 55px;
   }
 }

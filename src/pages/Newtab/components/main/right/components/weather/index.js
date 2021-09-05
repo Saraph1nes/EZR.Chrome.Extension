@@ -17,7 +17,7 @@ const Weather = () => {
    * 查询adcode用于天气查询
    * @returns {Promise<unknown>}
    */
-  const getAdcode = () => {
+  const getAdcode = async () => {
     const promise = new Promise((resolve, reject) => {
       axios.get('https://restapi.amap.com/v3/ip?parameters', {
         params: {
@@ -35,7 +35,7 @@ const Weather = () => {
    * @param adcode
    * @returns {Promise<unknown>}
    */
-  const getForecastWeather = (adcode) => {
+  const getForecastWeather = async (adcode) => {
     const promise = new Promise((resolve, reject) => {
       axios.get('https://restapi.amap.com/v3/weather/weatherInfo?parameters', {
         params: {
@@ -55,7 +55,7 @@ const Weather = () => {
    * @param adcode
    * @returns {Promise<unknown>}
    */
-  const getNowWeather = (adcode) => {
+  const getNowWeather = async (adcode) => {
     const promise = new Promise((resolve, reject) => {
       axios.get('https://restapi.amap.com/v3/weather/weatherInfo?parameters', {
         params: {
@@ -70,13 +70,9 @@ const Weather = () => {
     return promise;
   };
 
-  useEffect(() => {
-    getAdcode().then(getForecastWeather).then(res => {
-      setWeatherForecast(res);
-    });
-    getAdcode().then(getNowWeather).then(res => {
-      setWeatherNow(res);
-    });
+  useEffect(async () => {
+    setWeatherForecast(await getAdcode().then(getForecastWeather));
+    setWeatherNow(await getAdcode().then(getNowWeather));
   }, []);
 
   return (
