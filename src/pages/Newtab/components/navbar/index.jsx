@@ -33,12 +33,12 @@ const Navbar = (props) => {
              rel='noreferrer'>帮助中心</a>
         </div>
       </div>
-      <div className='showGameBtn'>
-        <Switch checkedChildren='游戏模式'
-                unCheckedChildren='操作面板'
-                checked={showGame}
-                onChange={handleSwitchChange} />
-      </div>
+      {/*<div className='showGameBtn'>*/}
+      {/*  <Switch checkedChildren='游戏模式'*/}
+      {/*          unCheckedChildren='操作面板'*/}
+      {/*          checked={showGame}*/}
+      {/*          onChange={handleSwitchChange} />*/}
+      {/*</div>*/}
     </div>);
 };
 

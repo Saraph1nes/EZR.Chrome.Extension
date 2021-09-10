@@ -209,13 +209,12 @@ const SearchPanel = () => {
                    setSearchInput(e.target.value);
                  }}
                  onKeyDown={(e) => {
-                   if (e.code === 'Enter') {
+                   if (e.code === 'Enter' && e.key !== 'Process') {
                      search();
                    }
                    if (e.code === 'Tab') {
                      let tempId;
                      e.preventDefault();
-                     e.stopPropagation();
                      if (selectId < searchSelectorList.length - 1) {
                        tempId = selectId + 1;
                      } else {

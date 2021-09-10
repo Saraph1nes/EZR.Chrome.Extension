@@ -15,7 +15,7 @@ export const BOARD = [
 
 export const PIECES = [
   {
-    color: [0xff / 0xff, 0x29 / 0xff, 0x29 / 0xff],
+    color: ['#77a1d350','#77a1d390'],
     mask: [
       [1, 1, 1],
       [1, 0, 0],
@@ -23,14 +23,14 @@ export const PIECES = [
     ]
   },
   {
-    color: [0xff / 0xff, 0x7a / 0xff, 0x29 / 0xff],
+    color: ['#D87B6C50','#D87B6C90'],
     mask: [
       [1, 0, 1],
       [1, 1, 1]
     ]
   },
   {
-    color: [0xfa / 0xff, 0xd0 / 0xff, 0x2e / 0xff],
+    color: ['#F0C7A950','#F0C7A990'],
     mask: [
       [0, 0, 1],
       [1, 1, 1],
@@ -38,14 +38,14 @@ export const PIECES = [
     ]
   },
   {
-    color: [0xbf / 0xff, 0x7f / 0xff, 0x35 / 0xff],
+    color: ['#A9A9F050','#A9A9F090'],
     mask: [
       [0, 0, 1, 1],
       [1, 1, 1, 0]
     ]
   },
   {
-    color: [0x36 / 0xff, 0xd8 / 0xff, 0xb7 / 0xff],
+    color: ['#915D7450','#915D7490'],
     mask: [
       [1, 0],
       [1, 1],
@@ -54,7 +54,7 @@ export const PIECES = [
     ]
   },
   {
-    color: [0x3b / 0xff, 0x8a / 0xff, 0xff / 0xff],
+    color: ['#E9F0A150','#E9F0A190'],
     mask: [
       [1, 1],
       [0, 1],
@@ -63,14 +63,14 @@ export const PIECES = [
     ]
   },
   {
-    color: [0x99 / 0xff, 0x1e / 0xff, 0xf9 / 0xff],
+    color: ['#F5714A50','#F5714A90'],
     mask: [
       [1, 1, 0],
       [1, 1, 1]
     ]
   },
   {
-    color: [0xff / 0xff, 0x5d / 0xff, 0xcd / 0xff],
+    color: ['#FD467E50','#FD467E90'],
     mask: [
       [1, 1, 1],
       [1, 1, 1]

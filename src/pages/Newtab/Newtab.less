@@ -1,6 +1,6 @@
 @import '~antd/dist/antd.less';
 
-.rotateWrapper{
+.rotateWrapper {
 
   /* 3D变形 */
   transform-style: preserve-3d;
@@ -9,36 +9,36 @@
   -ms-perspective: 500;
   perspective: 500;
 
-  .mainArea{
-    padding: 0 20px;
-    transition-duration:  1s;
+  .mainArea {
+    transition-duration: 500ms;
     transition-timing-function: ease-in-out;
 
-    .gamePanel{
+    .gamePanel {
+      height: calc(100vh - 55px) !important;
       background-color: #272727;
       width: 100%;
-      height: 70vh;
       transform: rotateY(180deg);
     }
 
-    .basic{
+    .basic {
       display: flex;
       flex: 1 0;
       position: relative;
       margin: 0 20px 0 20px;
       overflow: hidden;
 
-      div{
+      div {
         border-radius: 2px;
       }
 
-      .mainLeft{
+      .mainLeft {
         position: relative;
         background-color: #272727;
         flex: 1;
         min-width: 400px;
       }
-      .mainCenter{
+
+      .mainCenter {
         position: relative;
         background-color: #272727;
         display: flex;
@@ -46,7 +46,8 @@
         min-width: 660px;
         margin: 0 20px;
       }
-      .mainRight{
+
+      .mainRight {
         position: relative;
         flex: 1;
         min-width: 320px;
@@ -54,16 +55,16 @@
     }
   }
 
-  .showGame{
+  .showGame {
     transform: rotateY(180deg);
   }
 }
 
-.ant-select-item-option-selected{
+.ant-select-item-option-selected {
   background-color: #3a3a3a !important;
 }
 
-.ant-select-item-option-active{
+.ant-select-item-option-active {
   background-color: #3a3a3a !important;
 }
 
@@ -71,13 +72,15 @@
 &::-webkit-scrollbar {
   width: 4px;
 }
+
 &::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
-  background: rgba(0,0,0,0.2);
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
+
 &::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 0;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.1);
 }

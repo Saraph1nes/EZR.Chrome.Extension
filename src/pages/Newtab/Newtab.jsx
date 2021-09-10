@@ -25,7 +25,7 @@ const Newtab = () => {
     <React.Fragment>
       <NavBar setShowGame={setShowGame}
               showGame={showGame} />
-      <SearchPanel />
+      {showGame || <SearchPanel />}
       <div className='rotateWrapper'>
         <div className={`mainArea ${showGame && 'showGame'}`}>
           {
