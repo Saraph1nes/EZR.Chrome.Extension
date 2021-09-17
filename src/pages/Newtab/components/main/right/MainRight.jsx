@@ -8,7 +8,7 @@ const MainRight = () => {
   return (
     <React.Fragment>
       <div className='MainRight'>
-        <Weather/>
+        <Weather />
       </div>
     </React.Fragment>
   );
