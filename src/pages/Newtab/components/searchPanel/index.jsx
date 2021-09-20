@@ -65,16 +65,6 @@ const SearchPanel = () => {
   const [editItem, setEditItem] = useState(null);
 
   useEffect(() => {
-    // localStorage.setItem('quickNavList',JSON.stringify([{
-    //   title: '知乎',
-    //   url: 'https://www.zhihu.com',
-    // }, {
-    //   title: 'bilibili',
-    //   url: 'https://www.bilibili.com/',
-    // }, {
-    //   title: 'github',
-    //   url: 'https://www.github.com',
-    // }]))
     let item = getLocalStorageItem('quickNavList');
     if (item) {
       setQuickNavList(JSON.parse(item));
@@ -96,12 +86,6 @@ const SearchPanel = () => {
     let res = JSON.parse(getLocalStorageItem('quickNavList'));
     try {
       if (editItem) {
-        // let findItem = res.filter(v=>{
-        //   return v.title === editItem.title && v.url === editItem.url
-        // });
-        // if (findItem.length > 0){
-        //
-        // }
         res.map((v, i) => {
           if (v.title === editItem.title && v.url === editItem.url) {
             res.splice(i, 1, e);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './index.less';
-import { Button, Checkbox, Form, Input, message, Modal, Switch } from 'antd';
+import { Button, Form, Input, message, Modal } from 'antd';
 
 import { loginWithPhone, captcha,auth } from '@service/login';
 
@@ -20,21 +20,25 @@ const Navbar = (props) => {
 
   const { setShowGame, showGame } = props;
 
-  useEffect(()=>{
+  const handleSwitchChange = (e) => {
+    setShowGame(e);
+    // setLocalStorageItem('gameMode', e);
+  };
+
+  /**
+   * 调用auth接口实现登录状态的验证
+   */
+  const verifyLogin = () => {
     const localStorageToken = localStorage.getItem('token');
     auth(localStorageToken).then(res => {
       if (res.data.status){
         setIsLogin(true);
       }else {
         setIsLogin(false);
+        message.error('你还未登录，快点击右上角按钮登录吧~')
       }
     })
-  },[])
-
-  const handleSwitchChange = (e) => {
-    setShowGame(e);
-    // setLocalStorageItem('gameMode', e);
-  };
+  }
 
   const openLoginModel = () => {
     setInputPhoneNum('');
@@ -77,12 +81,17 @@ const Navbar = (props) => {
       setComfirmBtnLoading(true);
       await loginWithPhone(inputPhoneNum, inputCaptcha);
       setLoginModelVisible(false);
+      verifyLogin();
     } catch (e) {
       console.error(e);
     } finally {
       setComfirmBtnLoading(false);
     }
   };
+
+  useEffect(()=>{
+    verifyLogin();
+  },[])
 
   return (
     <div className='navbar'>
