@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, List, Select, Spin } from 'antd';
-import { juejinApi ,ezrYuQueApi} from '@service/mainCenter';
 import moment from 'moment';
 
 import './MainCenter.less';
 import { observer } from 'mobx-react';
-import { MainCenterStore } from '@model';
+import { MainCenterStore, LoginInfoStore } from '@model';
 
 const { Option } = Select;
 
 const MainCenter = observer((props) => {
-  // const store = useContext(MainCenterStore)
-  //
-  // console.log(store);
+  const mainCenterStore = useContext(MainCenterStore);
+  const loginInfoStore = useContext(LoginInfoStore);
+  const { juejinApi, ezrYuQueApi } = mainCenterStore;
+  const { token } = loginInfoStore;
 
   const [param, setParam] = useState({
     category: 'all',
@@ -69,8 +69,8 @@ const MainCenter = observer((props) => {
    * 列表数据源切换钩子
    */
   useEffect(async () => {
-    // let res = await ezrYuQueApi({token:'6406b2ac83ef46549f2d95d455e6fe69',type:'all',page:'1'});
-    // console.log(res);
+    let res = await ezrYuQueApi({ token: token, type: 'all', page: '1' });
+    console.log(res);
     // console.log(props);
   }, []);
 
@@ -88,7 +88,7 @@ const MainCenter = observer((props) => {
           </Option>
         </Select>
         {articalType === 'ezr' && (
-          <div style={{display:'inline-block'}}>
+          <div style={{ display: 'inline-block' }}>
             <Select style={{ background: '#3A3A3A' }}
                     value={'group'}
                     dropdownMatchSelectWidth={false}
@@ -99,7 +99,7 @@ const MainCenter = observer((props) => {
           </div>
         )}
         {articalType === 'gold' && (
-          <div style={{display:'inline-block'}}>
+          <div style={{ display: 'inline-block' }}>
             <Select style={{ background: '#3A3A3A' }}
                     value={param.category}
                     dropdownMatchSelectWidth={false}
@@ -204,6 +204,6 @@ const MainCenter = observer((props) => {
       }
     </div>
   );
-})
+});
 
 export default MainCenter;

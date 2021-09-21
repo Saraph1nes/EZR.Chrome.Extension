@@ -7,16 +7,12 @@ import { message } from 'antd';
  * @param phoneNum 手机号
  * @param captcha 验证码
  */
-const loginWithPhone = async (phoneNum, captcha) => {
-  let result;
-  const data = {
-    Phone: phoneNum,
-    Captcha: captcha
-  };
+const loginWithPhone = async (param) => {
+  const { phoneNum, captcha } = param;
   const options = {
     method: 'POST',
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
-    data: qs.stringify(data),
+    data: qs.stringify(param),
     url: 'http://log-ops.ezrpro.cn/api/LoginWithPhone'
   };
   let res = await axios(options);
@@ -34,8 +30,8 @@ const loginWithPhone = async (phoneNum, captcha) => {
  * 获取验证码
  * @param phoneNum 手机号
  */
-const captcha = (phoneNum) => {
-  axios.get(`http://log-ops.ezrpro.cn/api/captcha?${qs.stringify({ phone: phoneNum })}`).then(res => {
+const captcha = (param) => {
+  axios.get(`http://log-ops.ezrpro.cn/api/captcha?${qs.stringify(param)}`).then(res => {
     message.success('获取验证码成功，请在企业微信堡垒机查看！');
   });
 };
@@ -44,8 +40,8 @@ const captcha = (phoneNum) => {
  * 获取权限
  * @param phoneNum token
  */
-const auth = async (token) => {
-  return await axios.get(`http://log-ops.ezrpro.cn/api/auth?${qs.stringify({ token: token })}`);
+const auth = async (param) => {
+  return await axios.get(`http://log-ops.ezrpro.cn/api/auth?${qs.stringify(param)}`);
 };
 
 export { loginWithPhone, captcha,auth };

@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './index.less';
-import { Button, Form, Input, message, Modal } from 'antd';
+import { Button, Dropdown, Form, Input, Menu, message, Modal } from 'antd';
 
-import { loginWithPhone, captcha,auth } from '@service/login';
+import { LoginInfoStore } from '@model';
+import { observer } from 'mobx-react';
 
-const Navbar = (props) => {
-
-  const [isLogin,setIsLogin] = useState(false);
+const Navbar = observer((props) => {
+  const loginInfoStore = useContext(LoginInfoStore);
+  const { loginWithPhone, captcha, auth, isLogin } = loginInfoStore;
 
   const [inputPhoneNum, setInputPhoneNum] = useState('');
 
@@ -28,17 +29,9 @@ const Navbar = (props) => {
   /**
    * 调用auth接口实现登录状态的验证
    */
-  const verifyLogin = () => {
-    const localStorageToken = localStorage.getItem('token');
-    auth(localStorageToken).then(res => {
-      if (res.data.status){
-        setIsLogin(true);
-      }else {
-        setIsLogin(false);
-        message.error('你还未登录，快点击右上角按钮登录吧~')
-      }
-    })
-  }
+  const verifyLogin = async () => {
+    await auth();
+  };
 
   const openLoginModel = () => {
     setInputPhoneNum('');
@@ -56,7 +49,7 @@ const Navbar = (props) => {
       message.error('您输入的不为手机号');
       return;
     }
-    captcha(inputPhoneNum);
+    captcha({ phone: inputPhoneNum });
   };
 
   const handleLogin = async () => {
@@ -79,9 +72,12 @@ const Navbar = (props) => {
     }
     try {
       setComfirmBtnLoading(true);
-      await loginWithPhone(inputPhoneNum, inputCaptcha);
+      await loginWithPhone({
+        Phone: inputPhoneNum,
+        Captcha: inputCaptcha
+      });
       setLoginModelVisible(false);
-      verifyLogin();
+      await verifyLogin();
     } catch (e) {
       console.error(e);
     } finally {
@@ -89,9 +85,17 @@ const Navbar = (props) => {
     }
   };
 
-  useEffect(()=>{
-    verifyLogin();
-  },[])
+  /**
+   * 退出登录
+   */
+  const logout = () => {
+    localStorage.setItem('token', '');
+    loginInfoStore.isLogin = false;
+  };
+
+  useEffect(async () => {
+    await verifyLogin();
+  }, []);
 
   return (
     <div className='navbar'>
@@ -115,8 +119,20 @@ const Navbar = (props) => {
       </div>
       <div className='showGameBtn'>
         <div>
-          {isLogin ? <span>{`欢迎您，${localStorage.getItem('phone')}`}</span> : <Button onClick={openLoginModel}
-                             type='primary'>登录</Button>}
+          {isLogin ?
+            <Dropdown overlay={<Menu>
+              <Menu.Item
+                onClick={logout}>
+                <span>退出登录</span>
+              </Menu.Item>
+            </Menu>}>
+              <span>{`欢迎您，${localStorage.getItem('phone')}`}</span>
+            </Dropdown>
+            :
+            <Button onClick={openLoginModel}
+                    type='primary'>
+              登录
+            </Button>}
         </div>
       </div>
       {/*<div className='showGameBtn'>*/}
@@ -172,6 +188,6 @@ const Navbar = (props) => {
       </Modal>
     </div>
   );
-};
+});
 
 export default Navbar;

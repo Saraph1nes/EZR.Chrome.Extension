@@ -10,13 +10,13 @@ import { createContext } from 'react';
 class MainCenterStore {
   @action juejinApi = async (param) => {
     let res = await juejinApi(param);
-    console.log(res);
-  }
+    return res;
+  };
 
   @action ezrYuQueApi = async (param) => {
     let res = await ezrYuQueApi(param);
-    console.log(res);
-  }
+    return res;
+  };
 }
 
 export default createContext(new MainCenterStore()); //react-hooks中使用

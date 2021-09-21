@@ -14,7 +14,7 @@ const ASSET_PATH = process.env.ASSET_PATH || '/';
 let alias = {
   'react-dom': '@hot-loader/react-dom',
   '@': path.resolve('src'),
-  '@service': path.resolve('src/services'),
+  '@services': path.resolve('src/services'),
   '@model': path.resolve('src/model'),
   '@utils': path.resolve('src/common/utils'),
   '@constant': path.resolve('src/common/constant')
