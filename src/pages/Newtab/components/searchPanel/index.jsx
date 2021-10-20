@@ -44,8 +44,11 @@ const searchSelectorList = [
 ];
 
 const defaultQuickNavList = [{
-  title: 'q1',
+  title: 'EZRpro-q1',
   url: 'https://crm-q1.ezrpro.com/#/crm/Home'
+},{
+  title: '驿业平台-q1',
+  url: 'https://union-q1.ezrpro.com/#/homeNew'
 }, {
   title: 'bilibili',
   url: 'https://www.bilibili.com/'

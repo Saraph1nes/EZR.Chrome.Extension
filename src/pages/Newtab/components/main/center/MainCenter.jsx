@@ -4,15 +4,13 @@ import moment from 'moment';
 
 import './MainCenter.less';
 import { observer } from 'mobx-react';
-import { MainCenterStore, LoginInfoStore } from '@model';
+import { MainCenterStore } from '@model';
 
 const { Option } = Select;
 
 const MainCenter = observer((props) => {
   const mainCenterStore = useContext(MainCenterStore);
-  const loginInfoStore = useContext(LoginInfoStore);
   const { juejinApi, ezrYuQueApi } = mainCenterStore;
-  const { token } = loginInfoStore;
 
   const [param, setParam] = useState({
     category: 'all',
@@ -23,7 +21,7 @@ const MainCenter = observer((props) => {
   const [dataList, setDataList] = useState([]);
   const [tempOffset, setTempOffset] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [articalType, setArticalType] = useState('ezr');
+  const [articalType, setArticalType] = useState('gold');
 
   /**
    * 掘金文章分类和热度切换钩子
@@ -65,24 +63,15 @@ const MainCenter = observer((props) => {
     }
   }, [tempOffset]);
 
-  /**
-   * 列表数据源切换钩子
-   */
-  useEffect(async () => {
-    let res = await ezrYuQueApi({ token: token, type: 'all', page: '1' });
-    console.log(res);
-    // console.log(props);
-  }, []);
-
   return (
     <div className='MainCenter'>
       <div className='title'>
         <Select className='sourceSelector'
                 onChange={e => setArticalType(e)}
                 defaultValue={articalType}>
-          <Option value='ezr'>
-            <span className='titleSpan'>驿氪</span>
-          </Option>
+          {/*<Option value='ezr'>*/}
+          {/*  <span className='titleSpan'>驿氪</span>*/}
+          {/*</Option>*/}
           <Option value='gold'>
             <span className='titleSpan'>掘金</span>
           </Option>

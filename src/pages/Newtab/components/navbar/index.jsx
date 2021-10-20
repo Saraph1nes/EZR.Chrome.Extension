@@ -77,11 +77,11 @@ const Navbar = observer((props) => {
         Captcha: inputCaptcha
       });
       setLoginModelVisible(false);
-      await verifyLogin();
     } catch (e) {
       console.error(e);
     } finally {
       setComfirmBtnLoading(false);
+      await verifyLogin();
     }
   };
 
@@ -90,7 +90,7 @@ const Navbar = observer((props) => {
    */
   const logout = () => {
     localStorage.setItem('token', '');
-    loginInfoStore.isLogin = false;
+    verifyLogin();
   };
 
   useEffect(async () => {
@@ -113,79 +113,85 @@ const Navbar = observer((props) => {
         <div className='backgroundBanner'>
           <a className='title'
              target='_blank'
+             href='https://union.ezrpro.com/#/homeNew'
+             rel='noreferrer'>驿业平台</a>
+        </div>
+        <div className='backgroundBanner'>
+          <a className='title'
+             target='_blank'
              href='https://help.ezrpro.com/admin/'
              rel='noreferrer'>帮助中心</a>
         </div>
       </div>
-      <div className='showGameBtn'>
-        <div>
-          {isLogin ?
-            <Dropdown overlay={<Menu>
-              <Menu.Item
-                onClick={logout}>
-                <span>退出登录</span>
-              </Menu.Item>
-            </Menu>}>
-              <span>{`欢迎您，${localStorage.getItem('phone')}`}</span>
-            </Dropdown>
-            :
-            <Button onClick={openLoginModel}
-                    type='primary'>
-              登录
-            </Button>}
-        </div>
-      </div>
+      {/*<div className='showGameBtn'>*/}
+      {/*  <div>*/}
+      {/*    {isLogin ?*/}
+      {/*      <Dropdown overlay={<Menu>*/}
+      {/*        <Menu.Item*/}
+      {/*          onClick={logout}>*/}
+      {/*          <span>退出登录</span>*/}
+      {/*        </Menu.Item>*/}
+      {/*      </Menu>}>*/}
+      {/*        <span>{`欢迎您，${loginInfoStore.userInfos.chineseName}`}</span>*/}
+      {/*      </Dropdown>*/}
+      {/*      :*/}
+      {/*      <Button onClick={openLoginModel}*/}
+      {/*              type='primary'>*/}
+      {/*        登录*/}
+      {/*      </Button>}*/}
+      {/*  </div>*/}
+      {/*</div>*/}
       {/*<div className='showGameBtn'>*/}
       {/*  <Switch checkedChildren='游戏模式'*/}
       {/*          unCheckedChildren='操作面板'*/}
       {/*          checked={showGame}*/}
       {/*          onChange={handleSwitchChange} />*/}
       {/*</div>*/}
-      <Modal
-        title='登录'
-        cancelText='取消'
-        okText='登录'
-        visible={loginModelVisible}
-        onOk={handleLogin}
-        confirmLoading={comfirmBtnLoading}
-        onCancel={() => {
-          form.resetFields();
-          setLoginModelVisible(false);
-        }}
-      >
-        <Form
-          form={form}
-          preserve={false}
-          labelCol={{ span: 4 }}
-          wrapperCol={{ span: 20 }}
-        >
-          <Form.Item
-            label='手机号'
-            name='phone'
-          >
-            <Input
-              value={inputPhoneNum}
-              onChange={(e) => {
-                setInputPhoneNum(e.target.value);
-              }} />
-          </Form.Item>
+      {/*<Modal*/}
+      {/*  title='登录'*/}
+      {/*  cancelText='取消'*/}
+      {/*  okText='登录'*/}
+      {/*  visible={loginModelVisible}*/}
+      {/*  onOk={handleLogin}*/}
+      {/*  confirmLoading={comfirmBtnLoading}*/}
+      {/*  onCancel={() => {*/}
+      {/*    form.resetFields();*/}
+      {/*    setLoginModelVisible(false);*/}
+      {/*  }}*/}
+      {/*>*/}
+      {/*  <Form*/}
+      {/*    form={form}*/}
+      {/*    preserve={false}*/}
+      {/*    labelCol={{ span: 4 }}*/}
+      {/*    wrapperCol={{ span: 20 }}*/}
+      {/*  >*/}
+      {/*    <Form.Item*/}
+      {/*      label='手机号'*/}
+      {/*      name='phone'*/}
+      {/*    >*/}
+      {/*      <Input*/}
+      {/*        value={inputPhoneNum}*/}
+      {/*        onChange={(e) => {*/}
+      {/*          setInputPhoneNum(e.target.value);*/}
+      {/*        }} />*/}
+      {/*    </Form.Item>*/}
 
-          <Form.Item
-            label='验证码'
-            name='captcha'
-          >
-            <Input
-              style={{ display: 'inline-block', width: '270px' }}
-              value={inputCaptcha}
-              onChange={(e) => {
-                setInputCaptcha(e.target.value);
-              }} />
-            <Button style={{ float: 'right' }}
-                    type='primary'
-                    onClick={handleGetCaptcha}>获取验证码</Button>
-          </Form.Item>
-        </Form>
-      </Modal>
+      {/*    <Form.Item*/}
+      {/*      label='验证码'*/}
+      {/*      name='captcha'*/}
+      {/*    >*/}
+      {/*      <Input*/}
+      {/*        style={{ display: 'inline-block', width: '270px' }}*/}
+      {/*        value={inputCaptcha}*/}
+      {/*        onChange={(e) => {*/}
+      {/*          setInputCaptcha(e.target.value);*/}
+      {/*        }} />*/}
+      {/*      <Button style={{ float: 'right' }}*/}
+      {/*              type='primary'*/}
+      {/*              onClick={handleGetCaptcha}>获取验证码</Button>*/}
+      {/*    </Form.Item>*/}
+      {/*  </Form>*/}
+      {/*</Modal>*/}
     </div>
   );
 });

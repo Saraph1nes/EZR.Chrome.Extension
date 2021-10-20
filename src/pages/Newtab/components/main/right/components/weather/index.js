@@ -82,24 +82,24 @@ const Weather = () => {
       </div>
       <div className='content'>
         <div className='basicInfos'>
-          <span>{`${WeatherNow.province} ${WeatherNow.city}`}</span>
+          <span>{`${WeatherNow.province || '未知'} ${WeatherNow.city || '未知'}`}</span>
           <span>{moment().format('YYYY-MM-DD dddd')}</span>
         </div>
         <div className='nowadays'>
           <div>
-            <Tag color='green'>{`${WeatherNow.weather} ${WeatherNow.temperature}℃`}</Tag>
+            <Tag color='green'>{`${WeatherNow.weather || '未知'} ${WeatherNow.temperature || '未知'}℃`}</Tag>
           </div>
           <div>
-            <Tag color='cyan'>{`${WeatherNow.winddirection}风 ${WeatherNow.windpower}级`}</Tag>
+            <Tag color='cyan'>{`${WeatherNow.winddirection || '未知'}风 ${WeatherNow.windpower || '未知'}级`}</Tag>
           </div>
           <div>
-            <Tag color='blue'>{`湿度 ${WeatherNow.humidity}`}</Tag>
+            <Tag color='blue'>{`湿度 ${WeatherNow.humidity || '未知'}`}</Tag>
           </div>
         </div>
         <Divider />
         <div className='predict'>
           <Carousel
-            // autoplay
+            autoplay
             dotPosition='top'
             dots={{ className: 'dotsClass' }}
           >
@@ -127,7 +127,7 @@ const Weather = () => {
             })}
           </Carousel>
           <div className='footer'>
-            <span>{`发布时间：${WeatherNow.reporttime}`}</span>
+            <span>{`发布时间：${WeatherNow.reporttime || '未知'}`}</span>
           </div>
         </div>
       </div>

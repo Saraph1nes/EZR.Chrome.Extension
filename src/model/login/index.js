@@ -7,7 +7,6 @@ import {
   auth
 } from '@services/login';
 import { createContext } from 'react';
-import { message } from 'antd';
 
 class LoginInfoStore {
   @observable isLogin = false;
@@ -17,7 +16,10 @@ class LoginInfoStore {
   @observable userInfos = {};
 
   @action loginWithPhone = async (param) => {
-    await loginWithPhone(param);
+    let res = await loginWithPhone(param);
+    if (res.data.status) {
+      localStorage.setItem('token', res.data.data.token);
+    }
   };
 
   @action captcha = async (param) => {
@@ -26,12 +28,12 @@ class LoginInfoStore {
 
   @action auth = async () => {
     const res = await auth({ token: this.token });
+    console.log(res);
     if (res.data.status) {
       this.isLogin = true;
+      this.userInfos = res.data.data;
     } else {
       this.isLogin = false;
-      localStorage.setItem('token', '');
-      message.error('未登录');
     }
   };
 }
