@@ -6,7 +6,6 @@
   .searchInput{
     position: relative;
     width: 40%;
-    height: 40px;
     margin-top: 20px;
     opacity: 0.6 !important;
 
@@ -16,9 +15,12 @@
       left: 0;
       border-radius: 2px;
       width: 54px;
-      height: 40px;
       z-index: 10;
       cursor: pointer;
+
+      .ant-select-selector{
+        height: 40px;
+      }
 
       .options{
         background: #3a3a3a;
@@ -38,14 +40,6 @@
         height: 28px !important;
         background-repeat: no-repeat;
       }
-
-      .ant-select-selector{
-        height: 40px !important;
-      }
-
-      .ant-select-arrow{
-        color: #e3e3e3;
-      }
     }
 
     #ezrSearchInput{
@@ -53,12 +47,9 @@
       height: 100%;
       border: none;
       outline: 0;
-      line-height: 40px;
       padding: 0 76px;
       box-sizing: border-box;
-      color: #e3e3e3;
       border-radius: 2px;
-      background-color: #272727;
     }
   }
 
@@ -81,7 +72,6 @@
         text-align: match-parent;
         border-radius: 6px;
         height: 25px;
-        background-color: #1e1e1e;
         margin-right: 20px;
         padding: 0 10px;
 
@@ -101,7 +91,6 @@
         text-align: center;
         border-radius: 50%;
         height: 25px;
-        background-color: #1e1e1e;
         width: 25px;
         cursor: pointer;
       }
@@ -116,7 +105,6 @@
     display: flex;
 
     .title{
-      color: #e3e3e3;
       line-height: 32px;
     }
 
@@ -146,7 +134,6 @@
       align-items: center;
 
       label{
-        color: #e3e3e3;
         width: 70px;
       }
     }
@@ -171,10 +158,6 @@
       flex-direction: row;
       transition: background-color .15s linear;
       padding: 10px;
-
-      &:hover{
-        background-color: #4a4a4a;
-      }
     }
 
     .actionBtn{
@@ -186,7 +169,6 @@
       .dropdownMenu{
         position: absolute;
         display: none;
-        background-color: #666666;
         padding: 5px 0;
         z-index: 999;
         transform: translateX(-50%);
@@ -199,10 +181,6 @@
 
         .item{
           width: 100%;
-
-          &:hover{
-            background-color: #4a5b46;
-          }
         }
       }
 
@@ -213,8 +191,4 @@
       }
     }
   }
-}
-
-.ant-modal-header{
-  border-bottom: 1px solid #4a4a4a;
 }

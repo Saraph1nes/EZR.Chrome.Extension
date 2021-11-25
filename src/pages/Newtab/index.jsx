@@ -1,8 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import Newtab from './Newtab';
 import './index.css';
+import './Newtab.less'
+
+import Newtab from './Newtab';
 
 render(<Newtab />, window.document.querySelector('#app-container'));
 

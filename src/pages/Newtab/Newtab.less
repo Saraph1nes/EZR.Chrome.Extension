@@ -1,13 +1,12 @@
+@import '~antd/lib/style/themes/default.less';
 @import '~antd/dist/antd.less';
+@import "custom-dark-theme-file.less";
 
 .rotateWrapper {
 
   /* 3D变形 */
   transform-style: preserve-3d;
-  -webkit-perspective: 500;
-  -moz-perspective: 500;
-  -ms-perspective: 500;
-  perspective: 500;
+  //perspective: 500;
 
   .mainArea {
     transition-duration: 500ms;
@@ -59,14 +58,6 @@
     transform: rotateY(180deg);
   }
 
-}
-
-.ant-select-item-option-selected {
-  background-color: #3a3a3a !important;
-}
-
-.ant-select-item-option-active {
-  background-color: #3a3a3a !important;
 }
 
 /*滚动条样式*/

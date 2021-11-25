@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import './index.less';
-import { Button, Dropdown, Form, Input, Menu, message, Modal } from 'antd';
-
+import { Form, message, Switch } from 'antd';
 import { LoginInfoStore } from '@model';
 import { observer } from 'mobx-react';
+
+import './index.less';
 
 const Navbar = observer((props) => {
   const loginInfoStore = useContext(LoginInfoStore);
@@ -20,6 +20,8 @@ const Navbar = observer((props) => {
   const [form] = Form.useForm();
 
   const { setShowGame, showGame } = props;
+
+  const [darkTheme, setDarkTheme] = useState(true);
 
   const handleSwitchChange = (e) => {
     setShowGame(e);
@@ -97,6 +99,10 @@ const Navbar = observer((props) => {
     await verifyLogin();
   }, []);
 
+  const changeTheme = (e) => {
+    setDarkTheme(e);
+  };
+
   return (
     <div className='navbar'>
       <div className='logoArea'>
@@ -141,12 +147,16 @@ const Navbar = observer((props) => {
       {/*      </Button>}*/}
       {/*  </div>*/}
       {/*</div>*/}
-      {/*<div className='showGameBtn'>*/}
-      {/*  <Switch checkedChildren='游戏模式'*/}
-      {/*          unCheckedChildren='操作面板'*/}
-      {/*          checked={showGame}*/}
-      {/*          onChange={handleSwitchChange} />*/}
-      {/*</div>*/}
+      <div className='showGameBtn'>
+        {/*<Switch checkedChildren='游戏模式'*/}
+        {/*        unCheckedChildren='操作面板'*/}
+        {/*        checked={showGame}*/}
+        {/*        onChange={handleSwitchChange} />*/}
+        <Switch checkedChildren='🌙'
+                unCheckedChildren='☀'
+                checked={darkTheme}
+                onChange={changeTheme} />
+      </div>
       {/*<Modal*/}
       {/*  title='登录'*/}
       {/*  cancelText='取消'*/}

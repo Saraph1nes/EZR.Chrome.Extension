@@ -3,7 +3,7 @@ import { Button, Divider, Form, Input, message, Modal, Select } from 'antd';
 
 import './index.less';
 
-import {setLocalStorageItem,getLocalStorageItem} from '@/common/utils/handleLocalStorage'
+import { setLocalStorageItem, getLocalStorageItem } from '@/common/utils/handleLocalStorage';
 
 const { Option } = Select;
 
@@ -46,7 +46,7 @@ const searchSelectorList = [
 const defaultQuickNavList = [{
   title: 'EZRpro-q1',
   url: 'https://crm-q1.ezrpro.com/#/crm/Home'
-},{
+}, {
   title: '驿业平台-q1',
   url: 'https://union-q1.ezrpro.com/#/homeNew'
 }, {
@@ -174,8 +174,7 @@ const SearchPanel = () => {
               onChange={(e) => {
                 setLocalStorageItem('selectId', e);
                 setSelectId(e);
-              }}
-              style={{ width: '70px', height: '40px' }}>
+              }}>
               {searchSelectorList.map((v, i) => {
                 return (
                   <Option key={i}
@@ -189,28 +188,30 @@ const SearchPanel = () => {
               })}
             </Select>
           </div>
-          <Input id='ezrSearchInput'
-                 placeholder='请输入关键字搜索  |  Tab切换搜索引擎'
-                 value={searchInput}
-                 onChange={(e) => {
-                   setSearchInput(e.target.value);
-                 }}
-                 onKeyDown={(e) => {
-                   if (e.code === 'Enter' && e.key !== 'Process') {
-                     search();
-                   }
-                   if (e.code === 'Tab') {
-                     let tempId;
-                     e.preventDefault();
-                     if (selectId < searchSelectorList.length - 1) {
-                       tempId = selectId + 1;
-                     } else {
-                       tempId = 0;
-                     }
-                     setSelectId(tempId);
-                     setLocalStorageItem('selectId', tempId);
-                   }
-                 }} />
+          <Input
+            id='ezrSearchInput'
+            style={{height:'40px'}}
+            placeholder='请输入关键字搜索  |  Tab切换搜索引擎'
+            value={searchInput}
+            onChange={(e) => {
+              setSearchInput(e.target.value);
+            }}
+            onKeyDown={(e) => {
+              if (e.code === 'Enter' && e.key !== 'Process') {
+                search();
+              }
+              if (e.code === 'Tab') {
+                let tempId;
+                e.preventDefault();
+                if (selectId < searchSelectorList.length - 1) {
+                  tempId = selectId + 1;
+                } else {
+                  tempId = 0;
+                }
+                setSelectId(tempId);
+                setLocalStorageItem('selectId', tempId);
+              }
+            }} />
         </div>
         <div className='quickNav'>
           <ul className='list'>

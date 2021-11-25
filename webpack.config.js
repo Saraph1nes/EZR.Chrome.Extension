@@ -76,19 +76,19 @@ let options = {
             loader: 'less-loader', // compiles Less to CSS
             options: {
               lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
-                modifyVars: {
-                  'primary-color': '#8bc34a',
-                  'heading-color': '#E3E3E3',
-                  'body-background': '#121212',
-                  'component-background': '#272727',
-                  'popover-background': '#272727',
-                  'text-color': '#E3E3E3',
-                  'text-color-secondary': '#A9A9A9',
-                  'divider-color': '#4a4a4a',
-                  'border-color-base': '#272727',// base border outline a component
-                  'border-color-split': '#272727',// split border inside a component
-                  'font-family': '"PingFang SC",-apple-system,Arial,"Microsoft YaHei","Microsoft JhengHei","Helvetica Neue",sans-serif'
-                },
+                // modifyVars: {
+                //   'primary-color': '#8bc34a',
+                //   'heading-color': '#E3E3E3',
+                //   'body-background': '#121212',
+                //   'component-background': '#272727',
+                //   'popover-background': '#272727',
+                //   'text-color': '#E3E3E3',
+                //   'text-color-secondary': '#A9A9A9',
+                //   'divider-color': '#4a4a4a',
+                //   'border-color-base': '#272727',// base border outline a component
+                //   'border-color-split': '#272727',// split border inside a component
+                //   'font-family': '"PingFang SC",-apple-system,Arial,"Microsoft YaHei","Microsoft JhengHei","Helvetica Neue",sans-serif'
+                // },
                 // modifyVars: getThemeVariables({
                 //   'primary-color': '#8bc34a',
                 //   dark: false, // 开启暗黑模式
