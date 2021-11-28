@@ -110,5 +110,12 @@
     "url": "http://192.168.20.102:8080/",
     "desc": "打包工具",
     "remark": ""
+  },
+  {
+    "title": "yapi接口管理",
+    "img": "https://assets-img.ezrpro.com/pc/img/wx/YApi1.png",
+    "url": "https://fe-mock.ezrpro.work/",
+    "desc": "YApi 是高效、易用、功能强大的 api 管理平台",
+    "remark": ""
   }
 ]

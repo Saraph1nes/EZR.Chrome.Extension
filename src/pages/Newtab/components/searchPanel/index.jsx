@@ -47,7 +47,7 @@ const defaultQuickNavList = [{
   title: 'EZRpro-q1',
   url: 'https://crm-q1.ezrpro.com/#/crm/Home'
 }, {
-  title: '驿业平台-q1',
+  title: '驿业-q1',
   url: 'https://union-q1.ezrpro.com/#/homeNew'
 }, {
   title: 'bilibili',

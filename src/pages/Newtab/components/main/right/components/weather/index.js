@@ -99,7 +99,6 @@ const Weather = () => {
         <Divider />
         <div className='predict'>
           <Carousel
-            autoplay
             dotPosition='top'
             dots={{ className: 'dotsClass' }}
           >
@@ -107,16 +106,13 @@ const Weather = () => {
               return <div key={Index}
                           className='predictItem'>
                 <div className='item'>
-                  {weekName[Value.week]}
-                </div>
-                <div className='item'>
-                  {`${moment(Value.date).format('MM月DD日')} `}
-                </div>
-                <div className='item'>
-                  {Value.daytemp === Value.nighttemp ? Value.daytemp : `${Value.daytemp}℃ ~ ${Value.nighttemp}℃`}
+                  {weekName[Value.week]}{`(${moment(Value.date).format('MM月DD日')})`}
                 </div>
                 <div className='item'>
                   {Value.dayweather === Value.nightweather ? Value.dayweather : `${Value.dayweather} 转 ${Value.nightweather}`}
+                </div>
+                <div className='item'>
+                  {Value.daytemp === Value.nighttemp ? Value.daytemp : `${Value.daytemp}℃ ~ ${Value.nighttemp}℃`}
                 </div>
                 <div className='item'>
                   {Value.daywind === Value.nightwind && Value.daypower === Value.nightpower ?
