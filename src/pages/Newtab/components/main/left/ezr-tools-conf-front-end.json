@@ -7,6 +7,20 @@
     "remark": "目前仅仅前端同学使用，如无权限，请联系王宇锋"
   },
   {
+    "title": "运维发布系统",
+    "img": "https://assets-img.ezrpro.com/pc/img/others/fabu.png",
+    "url": "http://192.168.12.240:3001/#/",
+    "desc": "用于发布到测试环境、正式环境，全技术部门都在使用",
+    "remark": "权限对接人，运维部"
+  },
+  {
+    "title": "tpad",
+    "img": "https://assets-img.ezrpro.com/pc/img/order/tpad.png",
+    "url": "https://www.tapd.cn/company/participant_projects?from=left_tree2",
+    "desc": "项目流程管理平台",
+    "remark": ""
+  },
+  {
     "title": "斑马",
     "img": "https://assets-img.ezrpro.com/pc/img/others/zebra.png",
     "url": "https://fe-bm.ezrpro.work/#/mini/wechat",
@@ -18,13 +32,6 @@
     "img": "https://assets-img.ezrpro.com/pc/img/order/yqq.png",
     "url": "https://ezrpro.yuque.com/ezr/newbie",
     "desc": "前端知识体系",
-    "remark": "目前仅仅前端同学使用，如无权限，请联系王宇锋"
-  },
-  {
-    "title": "前端开发管理平台",
-    "img": "https://assets-img.ezrpro.com/pc/img/others/xiaoxi.png",
-    "url": "https://fe-dev.ezrpro.work/dashboard",
-    "desc": "即将废弃",
     "remark": "目前仅仅前端同学使用，如无权限，请联系王宇锋"
   },
   {
@@ -63,13 +70,6 @@
     "remark": ""
   },
   {
-    "title": "tpad",
-    "img": "https://assets-img.ezrpro.com/pc/img/order/tpad.png",
-    "url": "https://www.tapd.cn/company/participant_projects?from=left_tree2",
-    "desc": "项目流程管理平台",
-    "remark": ""
-  },
-  {
     "title": "gitlab",
     "img": "https://assets-img.ezrpro.com/pc/img/order/gitlab.png",
     "url": "https://gitlab.ezrpro.in/",
@@ -102,13 +102,6 @@
     "img": "https://assets-img.ezrpro.com/pc/img/others/yunwei.png",
     "url": "https://cmdb.ezrpro.com/#/dashboard",
     "desc": "运维管理平台",
-    "remark": "权限对接人，运维部"
-  },
-  {
-    "title": "运维发布系统",
-    "img": "https://assets-img.ezrpro.com/pc/img/others/fabu.png",
-    "url": "http://192.168.12.240:3001/#/",
-    "desc": "用于发布到测试环境、正式环境，全技术部门都在使用",
     "remark": "权限对接人，运维部"
   },
   {
