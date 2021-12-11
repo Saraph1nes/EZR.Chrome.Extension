@@ -112,7 +112,7 @@ const Weather = () => {
                   {Value.dayweather === Value.nightweather ? Value.dayweather : `${Value.dayweather} 转 ${Value.nightweather}`}
                 </div>
                 <div className='item'>
-                  {Value.daytemp === Value.nighttemp ? Value.daytemp : `${Value.daytemp}℃ ~ ${Value.nighttemp}℃`}
+                  {Value.daytemp === Value.nighttemp ? Value.daytemp : `${Value.nighttemp}℃ ~ ${Value.daytemp}℃`}
                 </div>
                 <div className='item'>
                   {Value.daywind === Value.nightwind && Value.daypower === Value.nightpower ?
