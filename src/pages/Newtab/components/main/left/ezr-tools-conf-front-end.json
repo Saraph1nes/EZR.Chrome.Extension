@@ -49,6 +49,13 @@
     "remark": ""
   },
   {
+    "title": "ezrd-mobile",
+    "img": "https://assets-img.ezrpro.com/mobile/icon/wx/Mobile_UI.png",
+    "url": "https://fe-npm.ezrpro.work/ezrdmobile/#/",
+    "desc": "EZR Design Mobile",
+    "remark": ""
+  },
+  {
     "title": "ezrpc",
     "img": "https://assets-img.ezrpro.com/pc/img/order/ezrpc1.png",
     "url": "https://fe-npm.ezrpro.work/ezrpc/zh/guides/install",
