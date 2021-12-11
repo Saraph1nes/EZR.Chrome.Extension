@@ -21,7 +21,7 @@ const MainCenter = observer((props) => {
   const [dataList, setDataList] = useState([]);
   const [tempOffset, setTempOffset] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [articalType, setArticalType] = useState('gold');
+  const [articleType, setArticleType] = useState('gold');
 
   /**
    * 掘金文章分类和热度切换钩子
@@ -67,8 +67,8 @@ const MainCenter = observer((props) => {
     <div className='MainCenter'>
       <div className='title'>
         <Select className='sourceSelector'
-                onChange={e => setArticalType(e)}
-                defaultValue={articalType}>
+                onChange={e => setArticleType(e)}
+                defaultValue={articleType}>
           {/*<Option value='ezr'>*/}
           {/*  <span className='titleSpan'>驿氪</span>*/}
           {/*</Option>*/}
@@ -76,7 +76,7 @@ const MainCenter = observer((props) => {
             <span className='titleSpan'>掘金</span>
           </Option>
         </Select>
-        {articalType === 'ezr' && (
+        {articleType === 'ezr' && (
           <div style={{ display: 'inline-block' }}>
             <Select style={{ background: '#3A3A3A' }}
                     value={'group'}
@@ -87,7 +87,7 @@ const MainCenter = observer((props) => {
             </Select>
           </div>
         )}
-        {articalType === 'gold' && (
+        {articleType === 'gold' && (
           <div style={{ display: 'inline-block' }}>
             <Select style={{ background: '#3A3A3A' }}
                     value={param.category}
@@ -99,14 +99,14 @@ const MainCenter = observer((props) => {
                     }}
             >
               <Option value='all'>首页</Option>
-              <Option value='frontend'>前端</Option>
-              <Option value='backend'>后端</Option>
-              <Option value='android'>Android</Option>
-              <Option value='ios'>IOS</Option>
-              <Option value='ai'>人工智能</Option>
-              <Option value='article'>阅读</Option>
-              <Option value='freebie'>开发工具</Option>
-              <Option value='career'>代码人生</Option>
+              {/*<Option value='frontend'>前端</Option>*/}
+              {/*<Option value='backend'>后端</Option>*/}
+              {/*<Option value='android'>Android</Option>*/}
+              {/*<Option value='ios'>IOS</Option>*/}
+              {/*<Option value='ai'>人工智能</Option>*/}
+              {/*<Option value='article'>阅读</Option>*/}
+              {/*<Option value='freebie'>开发工具</Option>*/}
+              {/*<Option value='career'>代码人生</Option>*/}
             </Select>
             <Select
               value={param.order}
@@ -124,10 +124,10 @@ const MainCenter = observer((props) => {
         )}
       </div>
       {
-        articalType === 'ezr' && <div className='ezrList'>123</div>
+        articleType === 'ezr' && <div className='ezrList'>123</div>
       }
       {
-        articalType === 'gold' && <div className='list'>
+        articleType === 'gold' && <div className='list'>
           <List
             grid={{
               gutter: 16,
@@ -149,7 +149,9 @@ const MainCenter = observer((props) => {
               }}
             >
               {tempOffset > 175 ? <span style={{ color: '#a9a9a9', userSelect: 'none' }}>———— 没有更多啦 ————</span> :
-                <Button onClick={() => {
+                <Button
+                  loading={loading}
+                  onClick={() => {
                   let tempParam = JSON.parse(JSON.stringify(param));
                   tempParam.offset = tempOffset + param.limit;
                   setTempOffset(tempParam.offset);
