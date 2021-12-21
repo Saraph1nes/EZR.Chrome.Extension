@@ -2,6 +2,7 @@ import React from 'react';
 
 import './MainRight.less';
 import Weather from './components/weather';
+import CatImg from './components/catImg';
 
 const MainRight = () => {
 
@@ -9,6 +10,7 @@ const MainRight = () => {
     <React.Fragment>
       <div className='MainRight'>
         <Weather />
+        <CatImg />
       </div>
     </React.Fragment>
   );
