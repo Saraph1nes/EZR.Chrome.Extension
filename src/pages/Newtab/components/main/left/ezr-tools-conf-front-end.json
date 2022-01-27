@@ -14,9 +14,9 @@
     "remark": "权限对接人，运维部"
   },
   {
-    "title": "tpad",
+    "title": "玄武",
     "img": "https://assets-img.ezrpro.com/pc/img/order/tpad.png",
-    "url": "https://www.tapd.cn/company/participant_projects?from=left_tree2",
+    "url": "https://demand.ezrpro.work/myWork/pendingList",
     "desc": "项目流程管理平台",
     "remark": ""
   },
@@ -33,6 +33,27 @@
     "url": "https://ezrpro.yuque.com/ezr/newbie",
     "desc": "前端知识体系",
     "remark": "目前仅仅前端同学使用，如无权限，请联系王宇锋"
+  },
+  {
+    "title": "ezrpc",
+    "img": "https://assets-img.ezrpro.com/pc/img/order/ezrpc1.png",
+    "url": "https://fe-npm.ezrpro.work/ezrpc/zh/guides/install",
+    "desc": "业务组件库",
+    "remark": ""
+  },
+  {
+    "title": "gitlab",
+    "img": "https://assets-img.ezrpro.com/pc/img/order/gitlab.png",
+    "url": "https://gitlab.ezrpro.in/",
+    "desc": "前端项目仓库",
+    "remark": ""
+  },
+  {
+    "title": "EZR Design Mobile",
+    "img": "https://assets-img.ezrpro.com/pc/img/others/mobilePhone.png",
+    "url": "https://fe-npm.ezrpro.work/ezrdmobile/#/",
+    "desc": "前端开发, 全栈开发, IOS开发, Android开发",
+    "remark": "A fresh and flat UI-Kit specially for desktop application, made with ♥ by Nerv"
   },
   {
     "title": "物料中心",
@@ -56,41 +77,6 @@
     "remark": ""
   },
   {
-    "title": "ezrd-mobile",
-    "img": "https://assets-img.ezrpro.com/mobile/icon/wx/Mobile_UI.png",
-    "url": "https://fe-npm.ezrpro.work/ezrdmobile/#/",
-    "desc": "EZR Design Mobile",
-    "remark": ""
-  },
-  {
-    "title": "ezrpc",
-    "img": "https://assets-img.ezrpro.com/pc/img/order/ezrpc1.png",
-    "url": "https://fe-npm.ezrpro.work/ezrpc/zh/guides/install",
-    "desc": "业务组件库",
-    "remark": ""
-  },
-  {
-    "title": "gitlab",
-    "img": "https://assets-img.ezrpro.com/pc/img/order/gitlab.png",
-    "url": "https://gitlab.ezrpro.in/",
-    "desc": "前端项目仓库",
-    "remark": ""
-  },
-  {
-    "title": "EZR Design Mobile",
-    "img": "https://assets-img.ezrpro.com/pc/img/others/mobilePhone.png",
-    "url": "http://192.168.20.102/ezrdmobile/#/",
-    "desc": "前端开发, 全栈开发, IOS开发, Android开发",
-    "remark": "A fresh and flat UI-Kit specially for desktop application, made with ♥ by Nerv"
-  },
-  {
-    "title": "UI 摹客",
-    "img": "https://assets-img.ezrpro.com/pc/img/order/uuii.png",
-    "url": "https://app.mockplus.cn/team/iidohiutnb/AppSet/2oF_Q8XDX",
-    "desc": "查看设计稿",
-    "remark": ""
-  },
-  {
     "title": "bandmaster(平台管理中心)",
     "img": "https://assets-img.ezrpro.com/pc/img/others/chilun.png",
     "url": "http://bandmaster.ezrpro.in/",
@@ -98,24 +84,17 @@
     "remark": "权限对接人，需要找凌晨开通权限"
   },
   {
-    "title": "CMDB(运维管理平台)",
-    "img": "https://assets-img.ezrpro.com/pc/img/others/yunwei.png",
-    "url": "https://cmdb.ezrpro.com/#/dashboard",
-    "desc": "运维管理平台",
-    "remark": "权限对接人，运维部"
-  },
-  {
-    "title": "jenkins",
-    "img": "https://assets-img.ezrpro.com/pc/img/others/dabao.png",
-    "url": "http://192.168.20.102:8080/",
-    "desc": "打包工具",
-    "remark": ""
-  },
-  {
     "title": "yapi接口管理",
     "img": "https://assets-img.ezrpro.com/pc/img/wx/YApi1.png",
     "url": "https://fe-mock.ezrpro.work/",
     "desc": "YApi 是高效、易用、功能强大的 api 管理平台",
+    "remark": ""
+  },
+  {
+    "title": "tpad（待废弃）",
+    "img": "https://assets-img.ezrpro.com/pc/img/order/tpad.png",
+    "url": "https://www.tapd.cn/company/participant_projects?from=left_tree2",
+    "desc": "项目流程管理平台",
     "remark": ""
   }
 ]

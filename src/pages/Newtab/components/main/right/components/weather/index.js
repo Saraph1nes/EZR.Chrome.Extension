@@ -96,35 +96,31 @@ const Weather = () => {
             <Tag color='blue'>{`湿度 ${WeatherNow.humidity || '未知'}`}</Tag>
           </div>
         </div>
-        <Divider />
+        <Divider style={{margin:'20px 0'}}/>
         <div className='predict'>
-          <Carousel
-            dotPosition='top'
-            dots={{ className: 'dotsClass' }}
-          >
-            {JSON.parse(JSON.stringify(WeatherForecast)).casts.map((Value, Index) => {
-              return <div key={Index}
-                          className='predictItem'>
-                <div className='item'>
-                  {weekName[Value.week]}{`(${moment(Value.date).format('MM月DD日')})`}
-                </div>
-                <div className='item'>
-                  {Value.dayweather === Value.nightweather ? Value.dayweather : `${Value.dayweather} 转 ${Value.nightweather}`}
-                </div>
-                <div className='item'>
-                  {Value.daytemp === Value.nighttemp ? Value.daytemp : `${Value.nighttemp}℃ ~ ${Value.daytemp}℃`}
-                </div>
-                <div className='item'>
-                  {Value.daywind === Value.nightwind && Value.daypower === Value.nightpower ?
-                    `${Value.daywind}风${Value.daypower}级` :
-                    `${Value.daywind}风${Value.daypower}级 ~ ${Value.nightwind}风${Value.nightpower}级`}
-                </div>
-              </div>;
-            })}
-          </Carousel>
-          <div className='footer'>
-            <span>{`发布时间：${WeatherNow.reporttime || '未知'}`}</span>
-          </div>
+          {JSON.parse(JSON.stringify(WeatherForecast)).casts.map((Value, Index) => {
+            return <div key={Index}
+                        className='predictItem'>
+              <div className='item'>
+                {weekName[Value.week]}
+                {/*{`(${moment(Value.date).format('MM月DD日')})`}*/}
+              </div>
+              <div className='item'>
+                {Value.dayweather === Value.nightweather ? Value.dayweather : `${Value.dayweather} 转 ${Value.nightweather}`}
+              </div>
+              <div className='item'>
+                {Value.daytemp === Value.nighttemp ? Value.daytemp : `${Value.nighttemp}℃ ~ ${Value.daytemp}℃`}
+              </div>
+              {/*<div className='item'>*/}
+              {/*  {Value.daywind === Value.nightwind && Value.daypower === Value.nightpower ?*/}
+              {/*    `${Value.daywind}风${Value.daypower}级` :*/}
+              {/*    `${Value.daywind}风${Value.daypower}级 ~ ${Value.nightwind}风${Value.nightpower}级`}*/}
+              {/*</div>*/}
+            </div>;
+          })}
+        </div>
+        <div className='footer'>
+          <span>{`发布时间：${WeatherNow.reporttime || '未知'}`}</span>
         </div>
       </div>
     </div>
