@@ -83,7 +83,7 @@ const Weather = () => {
       <div className='content'>
         <div className='basicInfos'>
           <span>{`${WeatherNow.province || '未知'} ${WeatherNow.city || '未知'}`}</span>
-          <span>{moment().format('YYYY-MM-DD dddd')}</span>
+          <span>{moment().format('YYYY-MM-DD ddd')}</span>
         </div>
         <div className='nowadays'>
           <div>
@@ -101,14 +101,14 @@ const Weather = () => {
           {JSON.parse(JSON.stringify(WeatherForecast)).casts.map((Value, Index) => {
             return <div key={Index}
                         className='predictItem'>
-              <div className='item'>
-                {weekName[Value.week]}
+              <div>
+                {Index === 0 ? '今日' : weekName[Value.week]}
                 {/*{`(${moment(Value.date).format('MM月DD日')})`}*/}
               </div>
-              <div className='item'>
+              <div>
                 {Value.dayweather === Value.nightweather ? Value.dayweather : `${Value.dayweather} 转 ${Value.nightweather}`}
               </div>
-              <div className='item'>
+              <div>
                 {Value.daytemp === Value.nighttemp ? Value.daytemp : `${Value.nighttemp}℃ ~ ${Value.daytemp}℃`}
               </div>
               {/*<div className='item'>*/}
